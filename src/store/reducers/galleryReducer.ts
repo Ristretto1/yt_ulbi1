@@ -46,4 +46,8 @@ export const GetItemsTC = () => (dispatch: Dispatch) => {
         .then((res) => {
             dispatch(GetItemsAC(res.data))
         })
+        .catch((error) => console.warn(error))
+        .finally(() => {
+
+        })
 }

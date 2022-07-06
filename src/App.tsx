@@ -16,8 +16,10 @@ export const App = () => {
     const filteredItems = items.filter(item => item.isLike)
 
     useEffect(() => {
-        // @ts-ignore
-        dispatch(GetItemsTC())
+        if(items.length === 0) {
+            // @ts-ignore
+            dispatch(GetItemsTC())
+        }
     }, [])
 
     return (

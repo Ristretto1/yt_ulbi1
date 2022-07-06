@@ -8,7 +8,7 @@ type GalleryPropsType = {
     items: Array<ImgAppType>
 }
 
-export const Gallery: FC<GalleryPropsType> = ({items}) => {
+export const Gallery: FC<GalleryPropsType> = React.memo(({items}) => {
     const dispatch = useDispatch();
 
     return (
@@ -36,4 +36,4 @@ export const Gallery: FC<GalleryPropsType> = ({items}) => {
         </>
 
     );
-};
+})

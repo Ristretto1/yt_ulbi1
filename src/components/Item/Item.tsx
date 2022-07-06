@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useCallback} from 'react';
 import s from './Item.module.css';
 import {ReactComponent as Heart} from '../common/icon/heart.svg';
 
@@ -11,11 +11,11 @@ type ItemPropsType = {
     isLike: boolean
 }
 
-export const Item: FC<ItemPropsType> = ({style, callback, isLike}) => {
+export const Item: FC<ItemPropsType> = React.memo(({style, callback, isLike}) => {
 
-    const onClickHandler = () => {
+    const onClickHandler = useCallback(() => {
         callback(!isLike)
-    }
+    }, [isLike, callback])
 
     return (
         <div className={s.itemBlock} style={style}>
@@ -24,5 +24,5 @@ export const Item: FC<ItemPropsType> = ({style, callback, isLike}) => {
             </button>
         </div>
     );
-};
+})
 
