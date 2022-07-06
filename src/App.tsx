@@ -9,6 +9,7 @@ export const App = () => {
         <BrowserRouter>
             <Nav/>
             <Routes>
+
                 <Route path="/" element={<Gallery/>}/>
                 <Route path="favorite" element={<Favorite/>}/>
             </Routes>
