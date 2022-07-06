@@ -47,6 +47,7 @@ export const App = () => {
                             <Route path="/" element={<Gallery items={items}/>}/>
                             <Route path="favorite" element={<Gallery items={filteredItems}/>}/>
                         </Routes>
+                        {fetching && <div>... загружаем еще котиков ...</div>}
                     </div>
                 </div>
             </div>
