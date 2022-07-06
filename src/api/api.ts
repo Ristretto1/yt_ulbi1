@@ -9,6 +9,6 @@ const instance = axios.create({
 // api
 export const imagesAPI = {
     getImages() {
-        return instance.get<Array<ImgResponseType>>('images/search?limit=15')
+        return instance.get<Array<ImgResponseType>>('images/search?limit=20')
     }
 }

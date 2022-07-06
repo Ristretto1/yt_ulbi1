@@ -1,6 +1,7 @@
 import {ImgAppType, ImgResponseType} from '../../components/types/apiTypes';
 import {Dispatch} from 'redux';
 import {imagesAPI} from '../../api/api';
+import {isFetchingAC} from './fetchReducer';
 
 type ActionType = GetItemsActionType | SetLikeActionType
 type GetItemsActionType = ReturnType<typeof GetItemsAC>
@@ -21,6 +22,9 @@ export const isLikeAC = (id: string, isLike: boolean) => {
     } as const
 }
 
+
+
+
 const initialState: Array<ImgAppType> = []
 
 
@@ -28,7 +32,7 @@ export const galleryReducer = (state: Array<ImgAppType> = initialState, action: 
     switch (action.type) {
 
         case 'GET_ITEMS': {
-            return action.items.map(item => ({...item, isLike: false}))
+            return [...state, ...action.items.map(item => ({...item, isLike: false}))]
         }
 
         case 'SET_LIKE': {
@@ -48,6 +52,6 @@ export const GetItemsTC = () => (dispatch: Dispatch) => {
         })
         .catch((error) => console.warn(error))
         .finally(() => {
-
+            dispatch(isFetchingAC(false))
         })
 }

@@ -9,7 +9,8 @@ export const store = createStore(rootReducer, loadState(), applyMiddleware(thunk
 
 store.subscribe(() => {
     saveState({
-        gallery: store.getState().gallery
+        gallery: store.getState().gallery,
+        fetch: store.getState().fetch
         }
     )
 })
